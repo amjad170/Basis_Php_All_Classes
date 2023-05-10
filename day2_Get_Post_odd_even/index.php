@@ -87,9 +87,7 @@ if(isset($_POST['Add'])){
 </table>
 
 <!-- print 1 to 1000 with for Loop -->
-
 <h2>Print 1 to 1000 Using for Loop</h2>
-
 <?php
 for($i=1; $i<=1000; $i++){
     echo $i ." ";
@@ -97,7 +95,6 @@ for($i=1; $i<=1000; $i++){
 ?>
 
 <!-- print 1 to 100 Odd number -->
-
 <h2>Print 1 to 100 Odd Number</h2>
 
 <?php
@@ -122,3 +119,6 @@ for($i=1; $i<=100; $i++){
     
 </body>
 </html>
+
+<!-- OOP part -->
+<?php?>
