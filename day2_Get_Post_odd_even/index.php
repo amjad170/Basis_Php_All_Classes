@@ -1,6 +1,48 @@
 <?php
 $pageTitle = "Home page"
 ?>
+
+<!-- BKash Number -->
+<?php
+$number = 7; //problem 0 zero
+
+switch($number){
+    case($number==0):
+        echo "0";
+        break;
+    case($number==1):
+        echo "Send Money";
+        break;
+    case($number==2):
+        echo "Send Money to non-bkash number";
+        break;
+    case($number==3):
+        echo "Mobile Recharge";
+        break;
+    case($number==4):
+        echo "Payment";
+        break;
+    case($number==5):
+        echo "Cash Out";
+        break;
+    case($number==6):
+        echo "Pay Bill";
+        break;
+    case($number==7):
+        echo "Microfinance";
+        break;
+    case($number==8):
+        echo "Download App";
+        break;
+    case($number==9):
+        echo "My bKash";
+        break;
+    case($number==10):
+        echo "Reset Pin";
+        break;
+     default:
+     echo "Dafault";  
+}?>
 <!-- From value show -->
 <?php
 if(isset($_POST['Add'])){
