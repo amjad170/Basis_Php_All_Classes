@@ -22,13 +22,18 @@ class Users{
        $email = $info['email'];
        $password = $info['password'];
 
-       $sql = "INSERT INTO `users`(`id`,`name`,`email`,`password`) VALUES(NULL,`$name`,`$email`,`$password`)";
+        $sql = "INSERT INTO `users`(`id`,`name`,`email`,`password`) VALUES (NULL,'$name','$email','$password')";
 
-       $result = mysqli_query($this->con, $sql);
+        $result = mysqli_query($this->con, $sql); // print_r($result) == 1, var_dump($result)==bool(true)
 
-       if($result){
-        echo "Data Inserted Successfully";
-       }
+    }
+
+    // Show Users
+
+    public function show_user(){
+        $result = mysqli_query($this->con,"SELECT * FROM `users`");// $result is an Object
+
+       return $result;
     }
 }
 
