@@ -35,6 +35,39 @@ class Users{
 
        return $result;
     }
+
+
+    // Delete User
+    public function delete_user($uid){
+       $result = mysqli_query($this->con, "DELETE FROM `users` WHERE id='$uid'");
+
+       if($result){
+        header("Location: index.php");
+       }
+    }
+
+
+    // Edit User
+    public function edit_user($uid){
+        $result = mysqli_query($this->con, "SELECT * FROM `users` WHERE id='$uid'"); // $result is an Object
+        return $result;
+    }
+
+    // Update User
+    public function update_user($data, $uid){   // here $data = $_POST is an Array
+        $name = $data['name'];
+        $email = $data['email'];
+        $password = $data['password'];
+        $sql = "UPDATE `users` SET `name`='$name',`email`='$email',`password`='$password' WHERE id='$uid'";
+        $result = mysqli_query($this->con, $sql);
+
+        if($result){
+            header("Location: index.php");
+        }
+    }
+
+
+
 }
 
 ?>

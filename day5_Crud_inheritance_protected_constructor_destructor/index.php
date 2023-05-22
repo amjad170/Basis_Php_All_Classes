@@ -76,15 +76,15 @@ if(isset($_POST["add_user"])){
                  $data = $u1->show_user(); // here $data==$result which is an Object
                  $i=1; // for index or serial maintain
                 
-                 while($row = mysqli_fetch_assoc($data)){?>     <!-- $data object convert to array by mysqli_fetch_assoc($data) method one by one -->
+                 while($row = mysqli_fetch_assoc($data)){?>     <!-- $data object convert to Asociative array by mysqli_fetch_assoc($data) method one by one row -->
                   <tr class="text-center">
-                    <td><?php echo $i++?></td> <!-- ecoh $row['id'] for original index -->
-                    <td><?php echo $row['name']?></td>
-                    <td><?php echo $row['email']?></td>
-                    <td><?php echo $row['password']?></td>
+                    <td><?php echo $i++; ?></td> <!-- ecoh $row['id'] for original index -->
+                    <td><?php echo $row['name']; ?></td>
+                    <td><?php echo $row['email']; ?></td>
+                    <td><?php echo $row['password']; ?></td>
                     <td>
-                      <a href="" class="btn btn-danger"><i class="bi-trash-fill"></i></a>
-                      <a href="" class="btn btn-primary"><i class="bi-pencil-fill"></i></a>
+                      <a href="edit.php?id=<?php echo $row['id']; ?>" class="btn btn-primary"><i class="bi-pencil-fill"></i></a>
+                      <a href="delete.php?id=<?php echo $row['id']; ?>" class="btn btn-danger"><i class="bi-trash-fill"></i></a>
                     </td>
                  </tr>
 
