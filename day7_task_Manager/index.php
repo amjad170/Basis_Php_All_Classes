@@ -2,7 +2,11 @@
 include("classes/TaskManager.php");
     $t1 = new TaskManager();
 
-    
+    if(isset($_POST['save'])){
+      
+       $t1->store($_POST);
+       
+    }
 
 
 
@@ -30,7 +34,7 @@ include("classes/TaskManager.php");
 <body>
 <div class="container">
     <div class="row py-4">
-        <div class="col-lg-8 offset-lg-2 shadow px-5">
+        <div class="col-lg-8 offset-lg-2 shadow p-5">
             <div class="title">
                 <h2 class="display-2 text-primary">Task Manager</h2>
                 <p class="lead">This is a simple Project.We are going to use HTML,Bootstrap,PHP and MYSQL</p>
@@ -45,20 +49,29 @@ include("classes/TaskManager.php");
                         <th>Date</th>
                         <th>Action</th>
                     </tr>
+
+                    <?php
+                   $data = $t1->show();                         // $t1->show() == $result   is an object
+                   $i =1; //for index number
+                   while($row = mysqli_fetch_assoc($data)){ ?>    <!-- $data object convert to array -->
+
                     <tr>
-                        <td>1</td>
-                        <td>Demo Task1</td>
-                        <td>Image Name</td>
-                        <td>12-10-202</td>
+                        <td><?php echo $i++; ?></td>
+                        <td><?php echo $row['task_name']; ?></td>
+
+                        <td><img src="upload/.<?php echo $row['task_image']; ?>" alt="" width="50px" height="40px"></td>
+                       
+
+                        <td><?php echo date("d-M-Y",strtotime($row['task_date'])); ?></td>
                         <td><a href="" class="btn btn-info">Edit</a></td>
                     </tr>
                    
-               
+                  <?php }  ?>
             </table>
           </div>
 
             <div class="addTask">
-            <form action="" method="POST" enctype="">
+            <form action="" method="POST" enctype="multipart/form-data">
                 <h2 class="display-5 text-primary">Add Task</h2>
 
                 <div class="form-group mb-3">
@@ -75,7 +88,7 @@ include("classes/TaskManager.php");
 
                 <div class="form-group mb-3">
                     <label for="addDate">Add Date</label>
-                    <input type="date" name="add_task" id="addDate" placeholder="Enter Task Details" class="form-control">
+                    <input type="date" name="add_date" id="addDate" placeholder="Enter Task Details" class="form-control">
                 </div>
 
                 <div class="form-group mb-3">
