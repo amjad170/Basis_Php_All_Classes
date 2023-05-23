@@ -22,9 +22,6 @@ include("classes/TaskManager.php");
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="css/slick.css">
-    <link rel="stylesheet" href="css/slick-theme.css">
-    <link rel="stylesheet" href="css/animate.css">
     <link rel="stylesheet" href="css/all.min.css">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/main.css">
@@ -112,12 +109,6 @@ include("classes/TaskManager.php");
 
     <!-- <script src="js/jquery-3.6.4.min.js"></script> -->
     <script src="js/jquery-1.12.4.min.js"></script>
-
-    <script src="js/slick.min.js"></script>
-
-    <script src="js/wow.min.js"></script>
-    <script src="js/particles.js"></script>
-    <script src="js/app.js"></script>
     <script src="js/all.min.js"></script>
     <script src="js/bootstrap.bundle.min.js"></script> <!-- bundle has other js included in it like popper. js -->
     <script src="js/main.js"></script>
