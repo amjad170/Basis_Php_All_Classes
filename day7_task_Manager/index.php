@@ -9,7 +9,6 @@ include("classes/TaskManager.php");
     }
 
 
-
 ?>
 
 
@@ -60,7 +59,10 @@ include("classes/TaskManager.php");
                        
 
                         <td><?php echo date("d-M-Y",strtotime($row['task_date'])); ?></td>
-                        <td><a href="" class="btn btn-info">Edit</a></td>
+                        <td>
+                            <a href="edit.php?id=<?php echo $row['id']?>"><i class="fa-solid fa-pen-to-square me-2"></i></a>
+                            <a href="delete.php?id=<?php echo $row['id']?>"><i class="fa-solid fa-trash"></i></a>
+                        </td>
                     </tr>
                    
                   <?php }  ?>
@@ -70,6 +72,24 @@ include("classes/TaskManager.php");
             <div class="addTask">
             <form action="" method="POST" enctype="multipart/form-data">
                 <h2 class="display-5 text-primary">Add Task</h2>
+
+                <!-- Display Message -->
+                <?php
+                
+                if(isset($_SESSION['message'])){?>
+
+                        <div class="alert alert-<?php echo $_SESSION['type'];?> alert-dismissible fade show" role="alert">
+                        <?php echo $_SESSION['message'] ?>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+
+              <?php 
+
+              unset($_SESSION['message']);
+              
+            }
+                
+                ?>
 
                 <div class="form-group mb-3">
                     <label for="addTask">Add Task</label>
