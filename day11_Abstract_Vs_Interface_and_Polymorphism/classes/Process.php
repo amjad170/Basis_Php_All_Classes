@@ -4,7 +4,6 @@ abstract class Bank{
     abstract public function license();
 }
 
-
 class DBBL extends Bank{
     function bankName(){
         echo "Bank Name: Dutch Bangla Bank Ltd.<br>";
