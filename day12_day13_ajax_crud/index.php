@@ -67,19 +67,8 @@
                 <th scope="col">Action</th>
               </tr>
             </thead>
-            <tbody>
-              <tr>
-                <th scope="row">1</th>
-                <td>demo</td>
-                <td>demo</td>
-                <td>demo</td>
-                <td>demo</td>
-                <td>
-                  <button class="btn btn-warning"><i class="fa-solid fa-pen-to-square"></i></button>
-                  <button class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
-                </td>
-              </tr>
-             
+            <tbody class="tbody">
+           
             </tbody>
 
         </table>
@@ -101,3 +90,25 @@
 </body>
 
 </html>
+
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5 text-danger" id="exampleModalLabel">Confirmation message</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body lead">
+        Are you sure want to remove the Employee?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">NO</button>
+        <button type="button" class="btn btn-danger" id="yesDelete">Yes</button>
+      </div>
+    </div>
+  </div>
+</div>
