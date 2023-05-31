@@ -5,6 +5,10 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Bootstrap demo</title>
+  <!-- sweet alert -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert2/11.7.9/sweetalert2.min.js" integrity="sha512-NRyo1rY9K5C++WKegF4jJxjIIz/AfAy5PvBM96DZy9Btc5S7NQPALl2+gN+rlDVt8wj/vtlmA5XF7vteBrH1eg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert2/11.7.9/sweetalert2.min.css" integrity="sha512-qvZv/T03Gkf34oxn0h7z8Le4LJtmJzZj4c7ppAA6V6dB/wDFAggxLjKOX9ToKNvj9Ala+DLvPG74OGbXliTs4w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+   <!--end sweet alert -->
   <link rel="stylesheet" href="css/all.min.css">
   <link rel="stylesheet" href="css/bootstrap.min.css">
 </head>
@@ -94,7 +98,7 @@
 
 
 
-<!-- Modal -->
+<!--Delete Modal -->
 <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -112,3 +116,41 @@
     </div>
   </div>
 </div>
+
+
+
+
+<!--Edit Modal -->
+<div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5 text-success" id="exampleModalLabel">Edit Employee</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+
+     <!-- from style withour from tag -->
+      <div class="from-group mb-3">
+            <input type="text" class="form-control" name="" id="uemp_name" placeholder="Enter employee name">
+          </div>
+
+          <div class="from-group mb-3">
+            <input type="email" class="form-control" name="" id="uemp_email" placeholder="Enter employee email">
+          </div>
+
+          <div class="from-group mb-3">
+            <input type="text" class="form-control" name="" id="uemp_phone" placeholder="Enter employee phone">
+          </div>
+          <!--end from style withour from tag -->
+
+        
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-success" id="yesUpdate">Update</button>
+      </div>
+    </div>
+  </div>
+</div>
+

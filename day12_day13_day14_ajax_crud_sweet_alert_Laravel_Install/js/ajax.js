@@ -120,10 +120,56 @@ $(document).ready(function(){
       });
     })
 
+    //Edit Employee
+    $(document).on("click","#editBtn",function(){
+      var id = $(this).val();
+      $("#yesUpdate").val(id);
 
+      $.ajax({
+         url: "classes/Process.php",
+         type: "POST",
+         data:{
+            id: id,
+            action: "edit"
+         },
+         dataType: "JSON",
+         success:function(resp){
+             $("#uemp_name").val(resp.emp_name);
+             $("#uemp_email").val(resp.emp_email);
+             $("#uemp_phone").val(resp.emp_phone);
+         }
+      });
 
+    });
 
-
+//UPdate Employee
+    $(document).on("click","#yesUpdate",function(){
+      var id = $(this).val();
+      var upd_name = $("#uemp_name").val();
+      var upd_email = $("#uemp_email").val();
+      var upd_phone = $("#uemp_phone").val();
+     
+      $.ajax({
+         url: "classes/Process.php",
+         type: "POST",
+         data:{
+            id: id,
+            updName: upd_name,
+            updEmail: upd_email,
+            updPhone: upd_phone,
+            
+            action: "update"
+         },
+         
+         success:function(resp){
+           show(); //this is use not for reload
+           $("#editModal").modal("hide");
+           //sweet alert
+           $(".msg").html(resp);
+         }
+      });
+    
+    })
 
 
 })

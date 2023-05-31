@@ -19,7 +19,16 @@ $con = new mysqli("localhost","root","","ajax_crud14");
     $result = $con->query($sql);
 
     if($result){
-        echo "Data inserted Successfully!";
+         //sweet alsert
+       echo "<script>
+                    Swal.fire({
+                    position: 'center',
+                    icon: 'success',
+                    title: 'Data Inserted Successfully',
+                    showConfirmButton: false,
+                    timer: 1500
+                    })
+                </script>";;
     }
  }
 
@@ -48,7 +57,7 @@ function show(){
                 </td>
 
                 <td>
-                  <button class="btn btn-sm btn-warning"><i class="fa-solid fa-pen-to-square"></i></button>
+                  <button class="btn btn-sm btn-warning" id="editBtn" value="<?= $employee['id']; ?>" data-bs-toggle="modal" data-bs-target="#editModal"><i class="fa-solid fa-pen-to-square"></i></button>
                   <button class="btn btn-sm btn-danger" id="deleteBtn" value="<?= $employee['id']; ?>" data-bs-toggle="modal" data-bs-target="#deleteModal"><i class="fa-solid fa-trash"></i></button>
                 </td>
               </tr> 
@@ -79,5 +88,42 @@ function destroy(){
     $id = $_POST['id'];
    $result = $con->query("DELETE FROM `employee` WHERE id='$id'");
 }
+
+ //Edit Employee
+ function edit(){
+    global $con;
+    $id = $_POST['id'];
+    $result = $con->query("SELECT * FROM `employee` WHERE id='$id'");
+    $FinalR = $result->fetch_assoc();
+    echo json_encode($FinalR);
+ }
+
+ //UPdate Employee
+ function update(){
+    global $con;
+    $id = $_POST['id'];
+    $updName = $_POST['updName'];
+    $updEmail = $_POST['updEmail'];
+    $updPhone = $_POST['updPhone'];
+    $sql = "UPDATE `employee` SET `emp_name`='$updName',`emp_email`='$updEmail',`emp_phone`='$updPhone' WHERE id='$id'";
+    $result = $con->query($sql);
+
+    if($result){
+        //sweet alsert
+        echo   "<script>
+                    Swal.fire({
+                    position: 'center',
+                    icon: 'success',
+                    title: 'Data Updated Successfully',
+                    showConfirmButton: false,
+                    timer: 1500
+                    })
+                </script>";
+    }
+ }
+
+
+
+
 
 ?>
